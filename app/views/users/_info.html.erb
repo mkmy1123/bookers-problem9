@@ -1,5 +1,5 @@
 <table class='table'>
-      <tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr> 
+      <tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
       <tr>
     	  <th>name</th>
     	  <th><%= user.name %></th>
@@ -8,8 +8,18 @@
     	  <th>introduction</th>
     	  <th><%= user.introduction %></th>
       </tr>
+      <tr>
+        <th>follows</th>
+        <th><a href="<%= following_user_path(user) %>"><%= user.followings.count %></a></th>
+      </tr>
+      <tr>
+        <th>followers</th>
+        <th><a href="<%= followers_user_path(user) %>"><%= user.followers.count %></a></th>
+      </tr>
+</div>
 </table>
-
+<% if user == current_user %>
 <div class='row'>
   <%= link_to '',edit_user_path(user),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" %>
 </div>
+<% end %>
