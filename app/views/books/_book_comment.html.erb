@@ -1,0 +1,5 @@
+<table id="comment_area" class="table">
+	<% book_comments.each do |book_comment| %> <!-- コメント一覧 -->
+		<%= render 'books/comment', book_comment: book_comment%>
+	<% end %>
+</table>
