@@ -1,2 +1,3 @@
 $('#comment_area').prepend("<%= j(render 'books/comment',{ book_comment: @book_comment }) %>");
+$("#book").html("<%= j(render partial: 'books/book', locals: { book: @book }) %>");
 $("textarea").val('')
